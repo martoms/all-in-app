@@ -2,7 +2,8 @@ const Home = () => {
     return ( 
         <div className="main-container">
             <div>
-                <h1>Web App Features and Components</h1>
+                <h1>Web App Features<br className="d-md-none"/> and Components</h1>
+                <hr className="hr-left" />
                 <p>
                     The following are sample features and components that I can further develop and implement on any website.
                 </p>

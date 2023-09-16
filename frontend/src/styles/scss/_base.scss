@@ -17,13 +17,21 @@ html, body {
 
 // Headings
 h1 {
+    font-weight: 900;
+    color: $light-c-2;
     line-height: $line-height * 1.6;
     margin-bottom: $base-margin * 2;
 }
 
 // Paragraph
 p {
+    color: $light-c-1;
     margin-bottom: $base-margin;
+}
+
+// Link
+a {
+    text-decoration: none;
 }
 
 // Basic Layout
@@ -31,4 +39,23 @@ p {
     background-color: $light-bg-1;
     height: 100vh;
     padding: $base-padding * 2;
+}
+
+.navbar {
+    padding: $base-padding ($base-padding * 2);
+    background-color: $light-bg-2;
+
+    a {
+        font-weight: 800;
+        color: $light-c-2;
+    }
+}
+
+@mixin hr {
+    border: solid 3px $light-c-4;
+};
+
+.hr-left {
+    @include hr;
+    width: 40%;
 }

@@ -13,13 +13,30 @@ html, body {
   height: 100%; }
 
 h1 {
+  font-weight: 900;
+  color: #1B6B93;
   line-height: 1.92rem;
   margin-bottom: 2rem; }
 
 p {
+  color: #164B60;
   margin-bottom: 1rem; }
+
+a {
+  text-decoration: none; }
 
 .main-container {
   background-color: #f8f8ff;
   height: 100vh;
   padding: 2rem; }
+
+.navbar {
+  padding: 1rem 2rem;
+  background-color: #fffafa; }
+  .navbar a {
+    font-weight: 800;
+    color: #1B6B93; }
+
+.hr-left {
+  border: solid 3px #A2FF86;
+  width: 40%; }
