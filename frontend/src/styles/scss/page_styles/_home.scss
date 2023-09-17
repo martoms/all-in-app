@@ -16,4 +16,8 @@
         color: mix(black, $light-bg-2, 60%);
         
     }
+
+    @include md {
+        min-height: calc(100vh - 287.51px);
+    }
 }
