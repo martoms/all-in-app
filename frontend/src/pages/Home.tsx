@@ -1,4 +1,13 @@
+import { useEffect } from "react";
+
 const Home = () => {
+
+    useEffect(() => {
+        fetch(import.meta.env.VITE_REACT_API_URL)
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }, [])
+
     return ( 
         <div className="main-container">
             <div>

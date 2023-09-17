@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors'
 import { connect } from 'mongoose';
+import featuresRoutes from './routes/featuresRoutes';
 
 dotenv.config();
 const app = express();
@@ -25,3 +26,6 @@ connect(process.env.MONGO_URI)
     console.log(`Error message: ${err.message}`);
     console.log(`Location: ${err.stack}`);
 });
+
+// Route Middlewares
+app.use(featuresRoutes);
