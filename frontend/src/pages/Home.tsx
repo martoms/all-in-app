@@ -1,12 +1,25 @@
-import { useEffect } from "react";
+import HomeFeatures from "../features/home/HomeFeatures";
+// import { useEffect } from "react";
+// import store from "../app/store";
+// import { retrieveFeatures } from "../features/home/homeSlice";
 
 const Home = () => {
 
-    useEffect(() => {
-        fetch(import.meta.env.VITE_REACT_API_URL)
-        .then(res => res.json())
-        .then(data => console.log(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch(import.meta.env.VITE_REACT_API_URL)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         store.dispatch(retrieveFeatures(data));
+    //     })
+    // }, [])
+
+    // console.log('Initial State ', store.getState())
+    // const unsubscribe = store.subscribe(() => {
+    // console.log('Updated State ', store.getState())
+    // })
+
+    // unsubscribe()
+
 
     return ( 
         <div className="main-container">
@@ -22,9 +35,7 @@ const Home = () => {
             </div>
             <div className="home-features">
                 <ul>
-                    <li>
-                        Data Search, Sort, & Filter
-                    </li>
+                    <HomeFeatures />
                 </ul>
             </div>
         </div>
