@@ -1,0 +1,19 @@
+.home-features{
+    background-color: $light-bg-3;
+    margin: 0 -2rem;
+    min-height: calc(100vh - 459.23px);
+
+    ul {
+        @include d-flex-center;
+    }
+
+    li {
+        @include feature-btn;
+        background-color: $light-bg-2;
+        padding: $base-padding;
+        width: 80%;
+        font-weight: 800;
+        color: mix(black, $light-bg-2, 60%);
+        
+    }
+}

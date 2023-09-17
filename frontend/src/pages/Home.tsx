@@ -11,6 +11,13 @@ const Home = () => {
                     The components I created basically follows the mobile-first design principle and are built using the MERN stack together with Vite, TypeScript, and SASS in the development process.
                 </p>
             </div>
+            <div className="home-features">
+                <ul>
+                    <li>
+                        Data Search, Sort, & Filter
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 }

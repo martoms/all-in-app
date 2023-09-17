@@ -34,16 +34,34 @@ a {
     text-decoration: none;
 }
 
+// Lists
+ul{
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+// Display
+@mixin d-flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 // Basic Layout
 .main-container {
     background-color: $light-bg-1;
-    height: 100vh;
-    padding: $base-padding * 2;
+    min-height: calc(100vh - $nav-height);
+
+    > div {
+        padding: $base-padding * 2;
+    };
 }
 
 .navbar {
     padding: $base-padding ($base-padding * 2);
-    background-color: $light-bg-2;
+    background-color: $light-bg-1;
 
     a {
         font-weight: 800;
@@ -58,4 +76,9 @@ a {
 .hr-left {
     @include hr;
     width: 40%;
+}
+
+// Basic Effects
+@mixin dropshadow-1 {
+    filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.1));
 }
