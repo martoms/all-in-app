@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { features_post, features_get } from '../controllers/featuresController';
+import { features_post, features_put, features_get } from '../controllers/featuresController';
 
 const router = Router();
 
@@ -8,6 +8,8 @@ const router = Router();
 router.get('/', features_get);
 // Add Features
 router.post('/', features_post);
+// Edit Features
+router.put('/:id', features_put);
 
 
 // Module Export

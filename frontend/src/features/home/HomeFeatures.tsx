@@ -1,12 +1,17 @@
 import { useEffect } from "react";
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
+import { useAppSelector, useAppDispatch } from '../../hooks/useReduxSelectors'
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { fetchFeatures } from "./homeSlice";
 
 
 const HomeFeatures = () => {
 
     const features = useAppSelector(state => state.home.homeFeatures)
+    const error = useAppSelector(state => state.home.error)
+    const loading = useAppSelector(state => state.home.loading)
     const dispatch = useAppDispatch()
+    
     useEffect(() => {
         dispatch(fetchFeatures())
     }, [dispatch])
@@ -15,17 +20,23 @@ const HomeFeatures = () => {
         
         const {
             _id,
-            title
+            title,
+            route
         } = feature;
 
         return (
-            <li key= { _id }>
-                { title }
-            </li>
+
+            <Link to={`/features/${route}`} className="feature-btn">
+                <Button key= { _id }>
+                    <li>
+                        { title }
+                    </li>
+                </Button>
+            </Link>
         )
     })
 
-    return featureItems;
+    return loading ? <li>Fetching Data...</li> : error ? <li>{error}</li> : featureItems;
 }
  
 export default HomeFeatures;

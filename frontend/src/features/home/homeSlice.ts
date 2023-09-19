@@ -4,6 +4,7 @@ type HomeFeatures = {
     _id: string;
     title: string;
     isFeatured: boolean;
+    route: string
 };
 
 type InitialState = {

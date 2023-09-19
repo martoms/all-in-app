@@ -7,17 +7,39 @@
         @include d-flex-center;
     }
 
-    li {
-        @include feature-btn;
-        background-color: $light-bg-2;
-        padding: $base-padding;
-        width: 80%;
-        font-weight: 800;
-        color: mix(black, $light-bg-2, 60%);
-        
-    }
-
     @include md {
         min-height: calc(100vh - 287.51px);
+    }
+}
+
+.feature-btn {
+    @include dropshadow-1;
+    border-radius: $b-radius-1;
+    width: 80%;
+    background-color: $light-bg-2;
+    padding: $base-padding;
+
+    button {
+        @include link-btn;
+        font-weight: 800;
+        color: mix(black, $light-bg-2, 60%);
+
+        &:hover {
+            @include link-btn;
+            color: mix(black, $light-bg-2, 60%);
+        }
+
+        &:active {
+            @include link-btn;
+            color: mix(black, $light-bg-2, 60%) !important;
+        }
+    }
+
+    &:active {
+        @include special-link;
+    }
+
+    &:hover {
+        @include bg-color-hover($light-bg-2);
     }
 }

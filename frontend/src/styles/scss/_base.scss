@@ -9,6 +9,14 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+@mixin bg-color-hover($bg-color) {
+    background-color: mix(black, $bg-color, 2%);
+}
+
+@mixin txt-color-hover($color) {
+    color: mix(white, $color, 50%);
+}
+
 /* HTML - Body properties */
 html, body {
     overflow-x: hidden;
@@ -37,6 +45,21 @@ p {
 // Link
 a {
     text-decoration: none;
+}
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    70% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+
+@mixin special-link {
+    animation: pulse 0.3s ease;
 }
 
 // Lists

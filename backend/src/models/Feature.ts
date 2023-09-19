@@ -5,6 +5,9 @@ const featureSchema = new mongoose.Schema({
     title : {
         type : String
     },
+    route : {
+        type : String
+    },
     isFeatured: {
         type : Boolean,
         default : true
