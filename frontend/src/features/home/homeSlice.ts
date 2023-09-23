@@ -1,17 +1,17 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
-type HomeFeatures = {
+interface HomeFeatures {
     _id: string;
     title: string;
     isFeatured: boolean;
     route: string
-};
+}
 
-type InitialState = {
+interface InitialState {
   loading: boolean;
   homeFeatures: HomeFeatures[];
   error: string; 
-};
+}
 
 const initialState: InitialState = {
   loading: false,

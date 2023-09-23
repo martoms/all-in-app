@@ -3,10 +3,16 @@ import mongoose from "mongoose";
 const featureSchema = new mongoose.Schema({
 
     title : {
-        type : String
+        type : String,
+        required : [true, 'Title is missing.']
+    },
+    description : {
+        type : String,
+        required : [true, 'Description is missing.']
     },
     route : {
-        type : String
+        type : String,
+        required : [true, 'Route is missing.']
     },
     isFeatured: {
         type : Boolean,

@@ -45,7 +45,7 @@ li {
 
 .main-container {
   background-color: #f8f8ff;
-  min-height: calc(100vh - $nav-height); }
+  min-height: calc(100vh - 56px); }
   .main-container > div {
     padding: 2rem; }
   @media (min-width: 768px) {

@@ -26,8 +26,8 @@ const HomeFeatures = () => {
 
         return (
 
-            <Link to={`/features/${route}`} className="feature-btn">
-                <Button key= { _id }>
+            <Link key= { _id } to={`/features/${route}`} className="feature-btn">
+                <Button>
                     <li>
                         { title }
                     </li>

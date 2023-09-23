@@ -26,5 +26,20 @@ const features_get = (req: express.Request, res: express.Response) => {
     .catch(err => res.json(err));
 };
 
+// Retrieve Specific Feature
+const specificFeature_get = (req: express.Request, res: express.Response) => {
 
-export { features_post, features_put, features_get };
+    const route = req.params.route;
+
+    Feature.find({route})
+    .then(result => res.status(200).json(result))
+    .catch(err => res.json(err));
+};
+
+
+export {
+    features_post,
+    features_put,
+    features_get,
+    specificFeature_get
+};
