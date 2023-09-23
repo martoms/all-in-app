@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import homeReducer from '../features/home/homeSlice';
-import dataSearchReducer from '../features/dataSearch/dataSearchSlice';
+import { dataSearchReducer, launchDataReducer } from '../features/dataSearch/dataSearchSlice';
 
 const store = configureStore({
   reducer: {
     home: homeReducer,
-    dataSearch: dataSearchReducer
+    dataSearch: dataSearchReducer,
+    launchData: launchDataReducer
   }
 })
 

@@ -13,6 +13,11 @@
     background-color: mix(black, $bg-color, 2%);
 }
 
+@mixin bg-color-hover-shadow($bg-color) {
+    @include dropshadow-1;
+    background-color: mix(black, $bg-color, 2%);
+}
+
 @mixin txt-color-hover($color) {
     color: mix(white, $color, 50%);
 }
@@ -72,6 +77,11 @@ li {
 }
 
 // Display
+@mixin d-flex {
+    display: flex;
+    align-items: center;
+}
+
 @mixin d-flex-center {
     display: flex;
     justify-content: center;
@@ -112,7 +122,9 @@ li {
 };
 
 .feature-container {
+    position: relative;
     background-color: $light-bg-3;
+    height: calc(100vh - 246.71px - 36px);
 }
 
 @mixin hr {

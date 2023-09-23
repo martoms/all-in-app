@@ -1,0 +1,41 @@
+div#launches {
+    position: relative;
+    background-color: white;
+    border-radius: $b-radius-1;
+    width: 70%;
+    margin: auto;
+    margin-top: $base-margin;
+    max-height: calc(100vh - 450px);
+    overflow-y: auto;
+
+    ul {
+        padding: $base-padding * 3;
+
+        li {
+            margin: ($base-margin / 5) 0;
+
+            .list-item {
+                @include d-flex;
+                position: relative;
+                gap: $base-gap;
+                background-color: white;
+                padding: $base-padding;
+
+                > img {
+                    height: 50px;
+                    width: 50px;
+                }
+
+                .mission {
+                    font-weight: 700;
+                    margin-bottom: 0;
+                }
+
+                &:hover {
+                    @include bg-color-hover-shadow(white);
+                }
+            }
+
+        }
+    }
+}

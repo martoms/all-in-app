@@ -7,11 +7,11 @@ import LaunchList from './LaunchList';
 const DataSearch = () => {
     const dispatch = useAppDispatch()
     const { route } = useParams()
-    const url = `${import.meta.env.VITE_REACT_API_URL}/features/${route}`
+    const dataSearchURL = `${import.meta.env.VITE_REACT_API_URL}/features/${route}`
 
     useEffect(() => {
-        dispatch(fetchDataSearch(url))
-    }, [dispatch, url])
+        dispatch(fetchDataSearch(dataSearchURL))
+    }, [dispatch, dataSearchURL])
 
     const dataSearch = useAppSelector(state => state.dataSearch.data)
     const title = dataSearch?.title;

@@ -7,7 +7,14 @@ import { fetchFeatures } from "./homeSlice";
 
 const HomeFeatures = () => {
 
-    const features = useAppSelector(state => state.home.data)
+    interface Feature {
+        _id: string;
+        title: string;
+        route: string;
+        isFeatured: boolean;
+    }
+
+    const features = useAppSelector(state => state.home.data) as Feature[]
     const error = useAppSelector(state => state.home.error)
     const loading = useAppSelector(state => state.home.loading)
     const dispatch = useAppDispatch()

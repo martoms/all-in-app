@@ -64,7 +64,9 @@ li {
     color: #1B6B93; }
 
 .feature-container {
-  background-color: #fff5ee; }
+  position: relative;
+  background-color: #fff5ee;
+  height: calc(100vh - 246.71px - 36px); }
 
 .hr-left {
   border: solid 4px #A2FF86;
@@ -135,3 +137,33 @@ footer {
     animation: pulse 0.3s ease; }
   .feature-btn:hover {
     background-color: #faf5f5; }
+
+div#launches {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  width: 70%;
+  margin: auto;
+  margin-top: 1rem;
+  max-height: calc(100vh - 450px);
+  overflow-y: auto; }
+  div#launches ul {
+    padding: 3rem; }
+    div#launches ul li {
+      margin: 0.2rem 0; }
+      div#launches ul li .list-item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        gap: 1rem;
+        background-color: white;
+        padding: 1rem; }
+        div#launches ul li .list-item > img {
+          height: 50px;
+          width: 50px; }
+        div#launches ul li .list-item .mission {
+          font-weight: 700;
+          margin-bottom: 0; }
+        div#launches ul li .list-item:hover {
+          filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.1));
+          background-color: #fafafa; }

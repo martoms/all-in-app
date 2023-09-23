@@ -1,12 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export function createDataSlice(sliceName: string, fetchAction: any) {
+// Define the interface for the initial state
+interface InitialState {
+    loading: boolean;
+    data: any | null;
+    error: string;
+}
 
-    const initialState = {
-        loading: false,
-        data: null,
-        error: '',
-    };
+const initialState: InitialState = {
+    loading: false,
+    data: null,
+    error: ''
+}
+
+type PayloadType<T> = {
+    [key: string]: T;
+};
+
+
+export function createDataSlice<T>(
+    sliceName: string,
+    fetchAction: any 
+    ) {
 
     return createSlice({
         name: sliceName,
@@ -19,7 +34,7 @@ export function createDataSlice(sliceName: string, fetchAction: any) {
                 })
                 .addCase(
                     fetchAction.fulfilled,
-                    (state, action: PayloadAction<any>) => {
+                    (state, action: PayloadAction<PayloadType<T>>) => {
                         state.loading = false;
                         state.data = action.payload;
                         state.error = '';

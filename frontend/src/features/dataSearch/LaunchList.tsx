@@ -1,9 +1,12 @@
-// import React from "react";
+import React from "react";
 // import { useState } from "react";
 
-// const ListItem = React.lazy(() => import("./ListItem"))
+const LaunchListItem = React.lazy(() => import("./LaunchListItem"))
 
 const LaunchList = () => {
+
+    
+
     // const [searchInput, setSearchInput] = useState("");
 
     // Get input value
@@ -23,9 +26,9 @@ const LaunchList = () => {
         </form> */}
         <div id="launches">
             <ul>
-                {/* <React.Suspense fallback='Loading...'>
-                    <ListItem searchInput={searchInput} />
-                </React.Suspense> */}
+                <React.Suspense fallback='Loading...'>
+                    <LaunchListItem /* searchInput={searchInput} */ />
+                </React.Suspense>
             </ul>
             {/* <p className="fetch-end">No more data is fetched</p> */}
         </div>
