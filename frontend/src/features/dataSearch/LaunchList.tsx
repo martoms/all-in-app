@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+// import React from "react";
+// import { useState } from "react";
 
 // const ListItem = React.lazy(() => import("./ListItem"))
 
@@ -23,11 +23,11 @@ const LaunchList = () => {
         </form> */}
         <div id="launches">
             <ul>
-                <React.Suspense fallback='Loading...'>
+                {/* <React.Suspense fallback='Loading...'>
                     <ListItem searchInput={searchInput} />
-                </React.Suspense>
+                </React.Suspense> */}
             </ul>
-            <p className="fetch-end">No more data is fetched</p>
+            {/* <p className="fetch-end">No more data is fetched</p> */}
         </div>
         </>
     );

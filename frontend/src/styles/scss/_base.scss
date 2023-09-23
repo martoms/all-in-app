@@ -51,7 +51,7 @@ a {
       transform: scale(1);
     }
     70% {
-      transform: scale(0.8);
+      transform: scale(0.9);
     }
     100% {
       transform: scale(1);
@@ -109,6 +109,10 @@ li {
         font-weight: 800;
         color: $light-c-2;
     }
+};
+
+.feature-container {
+    background-color: $light-bg-3;
 }
 
 @mixin hr {
