@@ -1,19 +1,20 @@
 import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from "../../hooks/useReduxSelectors";
-import { fetchFeatures } from "../home/homeSlice";
+import { fetchDataSearch } from './dataSearchSlice';
 import { useParams } from 'react-router-dom';
 
 const DataSearch = () => {
-    const route = useParams().route;
     const dispatch = useAppDispatch()
-    
-    useEffect(() => {
-        dispatch(fetchFeatures())
-    }, [dispatch])
+    const { route } = useParams()
+    const url = `${import.meta.env.VITE_REACT_API_URL}/features/${route}`
 
-    const features = useAppSelector(state => state.home.homeFeatures)
-    console.log('features')
-    console.log(features)
+    useEffect(() => {
+        dispatch(fetchDataSearch(url))
+    }, [dispatch, url])
+
+    const dataSearch = useAppSelector(state => state.dataSearch)
+    console.log('dataSearch')
+    console.log(dataSearch)
     return ( 
         <div className="main-container">
            <div>

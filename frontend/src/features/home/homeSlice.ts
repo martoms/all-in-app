@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import fetchURL from '../../app/fetchURL';
 
 interface HomeFeatures {
     _id: string;
@@ -19,11 +20,7 @@ const initialState: InitialState = {
   error: "",
 };
 
-const fetchFeatures = createAsyncThunk("home/fetchFeatures", async () => {
-  const response = await fetch(import.meta.env.VITE_REACT_API_URL);
-  const data = await response.json();
-  return data;
-});
+const fetchFeatures = fetchURL("home/fetchFeatures")
 
 const homeSlice = createSlice({
     name: 'home',

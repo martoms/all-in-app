@@ -11,10 +11,12 @@ const HomeFeatures = () => {
     const error = useAppSelector(state => state.home.error)
     const loading = useAppSelector(state => state.home.loading)
     const dispatch = useAppDispatch()
+
+    const url= import.meta.env.VITE_REACT_API_URL;
     
     useEffect(() => {
-        dispatch(fetchFeatures())
-    }, [dispatch])
+        dispatch(fetchFeatures(url))
+    }, [dispatch, url])
     
     const featureItems = features?.filter(feature => feature.isFeatured)?.map(feature => {
         

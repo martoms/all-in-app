@@ -32,7 +32,11 @@ const specificFeature_get = (req: express.Request, res: express.Response) => {
     const route = req.params.route;
 
     Feature.find({route})
-    .then(result => res.status(200).json(result))
+    .then(result => {
+        const title = result[0].title
+        const description = result[0].description
+        res.status(200).json({ title, description })
+    })
     .catch(err => res.json(err));
 };
 
