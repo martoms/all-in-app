@@ -4,7 +4,7 @@ import {
     features_put,
     features_get,
     specificFeature_get
-} from '../controllers/featuresController';
+} from '../controllers/featuresController.js';
 
 const router = Router();
 
