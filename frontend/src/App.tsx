@@ -7,7 +7,7 @@ import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/all-in-app'>
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} caseSensitive />
