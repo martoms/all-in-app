@@ -1,33 +1,36 @@
-name: deploy to lambda
+name: Deploy Backend to Lambda
 on: [push]
+
 jobs:
-  deploy_source:
-    name: build and deploy lambda
-    strategy:
-      matrix:
-        node-version: [18.x]
+  deploy_backend:
+    name: Build and Deploy Backend Lambda
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install and build
+          node-version: 18 # Set your desired Node.js version here
+
+      - name: Install Dependencies and Build
+        working-directory: backend/ # Change to the backend directory
         run: |
           npm ci
           npm run build --if-present
         env:
           CI: true
-      - name: zip
-        uses: montudor/action-zip@v0.1.0
-        with:
-          args: zip -qq -r ./bundle.zip ./
-      - name: default deploy
-        uses: appleboy/lambda-action@master
+
+      - name: Zip Backend Code
+        working-directory: backend/ # Change to the backend directory
+        run: zip -qq -r ./backend_bundle.zip ./
+
+      - name: Deploy Backend to Lambda
+        uses: appleboy/lambda-action@v2
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-west-1
-          function_name: my-function
-          zip_file: bundle.zip
+          function_name: all-in-app-api # Replace with your Lambda function name
+          zip_file: backend/backend_bundle.zip # Update the path to the backend bundle
