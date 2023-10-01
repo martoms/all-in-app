@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // Define the interface for the initial state
 interface InitialState {
+    expand: boolean;
     loading: boolean;
     data: any | null;
     error: string;
 }
 
 const initialState: InitialState = {
+    expand: false,
     loading: false,
     data: null,
     error: ''

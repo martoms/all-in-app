@@ -60,33 +60,25 @@
 }
 
 @mixin launches {
-    position: relative;
-    background-color: white;
-    border-radius: $b-radius-1;
-    margin: auto;
-    margin-top: $base-margin;
-    overflow-y: auto;
+    @include frame-1;
 
     @include md {
         width: 70%;
     }
 
     ul {
-        padding: $base-padding * 3;
+        padding: ($base-padding * 3);
+        padding-top: $base-padding;
 
         li {
             margin: ($base-margin / 5) 0;
-
-            .list-item:first-child {
-                padding-top: 0;
-            }
 
             .list-item {
                 @include d-flex;
                 position: relative;
                 gap: $base-gap;
                 background-color: white;
-                padding: $base-padding 0;
+                padding: $base-padding;
 
                 > img {
                     height: 50px;
@@ -118,4 +110,18 @@ div#launches {
 div#launches.expand {
     @include launches;
     min-height: calc(100vh - 225px);
+}
+
+@mixin launch-details {
+    @include frame-1;
+
+    img {
+        width: 70vw;
+        height: auto;
+    }
+}
+
+div#launch-details {
+    max-height: calc(100vh - 490px - 19.81px);
+    @include launch-details;
 }

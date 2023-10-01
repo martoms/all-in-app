@@ -171,7 +171,8 @@ footer {
   .feature-btn:active {
     animation: pulse 0.3s ease; }
   .feature-btn:hover {
-    background-color: #faf5f5; }
+    background-color: #faf5f5;
+    cursor: pointer; }
 
 .feature-container form {
   display: flex;
@@ -228,18 +229,17 @@ div#launches {
     div#launches {
       width: 70%; } }
   div#launches ul {
-    padding: 3rem; }
+    padding: 3rem;
+    padding-top: 1rem; }
     div#launches ul li {
       margin: 0.2rem 0; }
-      div#launches ul li .list-item:first-child {
-        padding-top: 0; }
       div#launches ul li .list-item {
         display: flex;
         align-items: center;
         position: relative;
         gap: 1rem;
         background-color: white;
-        padding: 1rem 0; }
+        padding: 1rem; }
         div#launches ul li .list-item > img {
           height: 50px;
           width: 50px; }
@@ -248,7 +248,8 @@ div#launches {
           margin-bottom: 0; }
         div#launches ul li .list-item:hover {
           filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.1));
-          background-color: #fafafa; }
+          background-color: #fafafa;
+          cursor: pointer; }
   @media (min-width: 992px) {
     div#launches {
       max-height: calc(100vh - 450px); } }
@@ -265,18 +266,17 @@ div#launches.expand {
     div#launches.expand {
       width: 70%; } }
   div#launches.expand ul {
-    padding: 3rem; }
+    padding: 3rem;
+    padding-top: 1rem; }
     div#launches.expand ul li {
       margin: 0.2rem 0; }
-      div#launches.expand ul li .list-item:first-child {
-        padding-top: 0; }
       div#launches.expand ul li .list-item {
         display: flex;
         align-items: center;
         position: relative;
         gap: 1rem;
         background-color: white;
-        padding: 1rem 0; }
+        padding: 1rem; }
         div#launches.expand ul li .list-item > img {
           height: 50px;
           width: 50px; }
@@ -285,4 +285,17 @@ div#launches.expand {
           margin-bottom: 0; }
         div#launches.expand ul li .list-item:hover {
           filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.1));
-          background-color: #fafafa; }
+          background-color: #fafafa;
+          cursor: pointer; }
+
+div#launch-details {
+  max-height: calc(100vh - 490px - 19.81px);
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 1rem;
+  overflow-y: auto; }
+  div#launch-details img {
+    width: 70vw;
+    height: auto; }

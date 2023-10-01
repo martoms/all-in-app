@@ -1,9 +1,9 @@
-import DataSearchHeader from './DataSearchHeader';
-import LaunchList from './LaunchList';
-import ExpandToggle from '../../components/ExpandToggle';
-import useExpandToggle from '../../hooks/useExpandToggle';
+import DataSearchHeader from "./DataSearchHeader";
+import ExpandToggle from "../../components/ExpandToggle";
+import useExpandToggle from "../../hooks/useExpandToggle";
+import LaunchItemDetails from "./LaunchItemDetails";
 
-const DataSearch = () => {
+const LaunchItemPage = () => {
 
     const { expandToggle, handleExpandToggle } = useExpandToggle();
     
@@ -15,10 +15,10 @@ const DataSearch = () => {
                     expandToggle={ expandToggle }
                     handleExpandToggle={ handleExpandToggle }
                 />
-                <LaunchList expandToggle={expandToggle} />
+                <LaunchItemDetails />
             </div>
         </div>
     );
 }
  
-export default DataSearch;
+export default LaunchItemPage;

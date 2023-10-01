@@ -11,11 +11,13 @@
 
 @mixin bg-color-hover($bg-color) {
     background-color: mix(black, $bg-color, 2%);
+    cursor: pointer;
 }
 
 @mixin bg-color-hover-shadow($bg-color) {
     @include dropshadow-1;
     background-color: mix(black, $bg-color, 2%);
+    cursor: pointer;
 }
 
 @mixin txt-color-hover($color) {
@@ -165,6 +167,15 @@ input {
 .feature-container.expand {
     @include feature-container;
     height: calc(100vh - 36px);
+}
+
+@mixin frame-1 {
+    position: relative;
+    background-color: white;
+    border-radius: $b-radius-1;
+    margin: auto;
+    margin-top: $base-margin;
+    overflow-y: auto;
 }
 
 .expand-toggle {

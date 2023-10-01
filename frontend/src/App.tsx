@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import DataSearch from './features/dataSearch/DataSearch';
 import PageNotFound from './pages/PageNotFound';
+import LaunchItemPage from './features/dataSearch/LaunchItemPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} caseSensitive />
           <Route path='/features/:route' element={<DataSearch />} />
+          <Route path='/features/:route/:id' element={<LaunchItemPage />} />
           <Route path='*' element={ <PageNotFound/> } />
         </Routes>
         <Footer />

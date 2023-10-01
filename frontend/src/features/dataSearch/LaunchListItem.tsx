@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from "../../hooks/useReduxSelectors";
 import { fetchLaunchData } from './dataSearchSlice';
 import placeholder from '../../images/rocket.webp';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 type LaunchListItemProps = {
     searchInput: string; 
@@ -10,13 +12,14 @@ type LaunchListItemProps = {
 }
 
 const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter, setResultCount } ) => {
-
-    const dispatch = useAppDispatch()
-    const lauchDataURL = 'https://api.spacexdata.com/v4/launches/'
+    
+    const { route } = useParams();
+    const dispatch = useAppDispatch();
+    const launchDataURL = 'https://api.spacexdata.com/v4/launches/'
 
     useEffect(() => {
-        dispatch(fetchLaunchData(lauchDataURL))
-    }, [dispatch, lauchDataURL])
+        dispatch(fetchLaunchData(launchDataURL))
+    }, [dispatch, launchDataURL])
 
     interface LaunchData {
         id: string;
@@ -31,10 +34,10 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter, s
         }
     }
 
-    const lauchData = useAppSelector(state => state.launchData.data) as LaunchData[]
+    const launchData = useAppSelector(state => state.launchData.data) as LaunchData[]
 
     // Filter launches based on the search input
-    const searchFilter = lauchData?.filter((launch) => {
+    const searchFilter = launchData?.filter((launch) => {
         return Object.values(launch)?.some((value) =>
         value?.toString()?.toLowerCase()?.includes(searchInput?.toLowerCase())
         );
@@ -79,16 +82,18 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter, s
     // Iterate items
     const listItem = ids?.map((id, i) => {
         return ( 
-            <li key={id}>
-                <div className='list-item'>
-                    <img src={rocket![i] || placeholder} alt={names![i]} loading='lazy' />
-                    <div className='list-details'>
-                        <p className='mission'>
-                            {`${flightNumbers![i]}: ${names![i]} (${years![i]})`}
-                        </p>
+            <Link key= { id } to={`/features/${route}/${id}`}>
+                <li>
+                    <div className='list-item'>
+                        <img src={rocket![i] || placeholder} alt={names![i]} loading='lazy' />
+                        <div className='list-details'>
+                            <p className='mission'>
+                                {`${flightNumbers![i]}: ${names![i]} (${years![i]})`}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            </Link>
         );
     });
 
