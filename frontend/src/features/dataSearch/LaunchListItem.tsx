@@ -32,7 +32,7 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput } ) => {
     const lauchData = useAppSelector(state => state.launchData.data) as LaunchData[]
 
     // Filter launches based on the search input
-    const filteredLaunches = lauchData.filter((launch) => {
+    const filteredLaunches = lauchData?.filter((launch) => {
         return Object.values(launch)?.some((value) =>
         value?.toString()?.toLowerCase()?.includes(searchInput?.toLowerCase())
         );

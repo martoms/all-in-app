@@ -87,6 +87,24 @@ li {
     justify-content: center;
 }
 
+//  Forms
+@mixin placeholder {
+    &::placeholder {
+      font-style: italic;
+      margin-left: 10px;
+    };
+
+    &:focus {
+        outline-color: $light-c-4;
+    }
+}
+
+input {
+    @include placeholder;
+    border-radius: $b-radius-1;
+    border-color: transparent;
+}
+
 // Basic Layout
 .main-container {
     background-color: $light-bg-1;

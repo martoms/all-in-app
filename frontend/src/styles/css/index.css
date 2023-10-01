@@ -43,6 +43,15 @@ ul {
 li {
   list-style-type: none; }
 
+input {
+  border-radius: 10px;
+  border-color: transparent; }
+  input::placeholder {
+    font-style: italic;
+    margin-left: 10px; }
+  input:focus {
+    outline-color: #A2FF86; }
+
 .main-container {
   background-color: #f8f8ff;
   min-height: calc(100vh - 56px); }
@@ -138,26 +147,42 @@ footer {
   .feature-btn:hover {
     background-color: #faf5f5; }
 
+form.searchbar {
+  display: flex;
+  justify-content: center;
+  margin: auto; }
+  @media (min-width: 768px) {
+    form.searchbar {
+      width: 70%; } }
+  form.searchbar input {
+    position: relative;
+    width: 100%;
+    padding: 10px; }
+
 div#launches {
   position: relative;
   background-color: white;
   border-radius: 10px;
-  width: 70%;
   margin: auto;
   margin-top: 1rem;
   max-height: calc(100vh - 450px);
   overflow-y: auto; }
+  @media (min-width: 768px) {
+    div#launches {
+      width: 70%; } }
   div#launches ul {
     padding: 3rem; }
     div#launches ul li {
       margin: 0.2rem 0; }
+      div#launches ul li .list-item:first-child {
+        padding-top: 0; }
       div#launches ul li .list-item {
         display: flex;
         align-items: center;
         position: relative;
         gap: 1rem;
         background-color: white;
-        padding: 1rem; }
+        padding: 1rem 0; }
         div#launches ul li .list-item > img {
           height: 50px;
           width: 50px; }

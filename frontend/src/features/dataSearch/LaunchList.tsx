@@ -14,7 +14,7 @@ const LaunchList = () => {
 
     return (
         <>
-        <form>
+        <form className="searchbar">
             <input
                 type="text"
                 placeholder="Enter keywords"
