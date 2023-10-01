@@ -1,5 +1,5 @@
 import express from 'express';
-import Feature from "../models/Feature.js";
+import Feature from "../models/Feature";
 
 // Add Features
 const features_post = (req: express.Request, res: express.Response) => {

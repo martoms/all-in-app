@@ -3,7 +3,11 @@ import { useAppSelector, useAppDispatch } from "../../hooks/useReduxSelectors";
 import { fetchLaunchData } from './dataSearchSlice';
 import placeholder from '../../images/rocket.webp';
 
-const LaunchListItem = (/* { searchInput } */) => {
+type LaunchListItemProps = {
+    searchInput: string; 
+}
+
+const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput } ) => {
 
     const dispatch = useAppDispatch()
     const lauchDataURL = 'https://api.spacexdata.com/v4/launches/'
@@ -28,22 +32,22 @@ const LaunchListItem = (/* { searchInput } */) => {
     const lauchData = useAppSelector(state => state.launchData.data) as LaunchData[]
 
     // Filter launches based on the search input
-    // const filteredLaunches = launches.filter((launch) => {
-    //     return Object.values(launch)?.some((value) =>
-    //     value?.toString()?.toLowerCase()?.includes(searchInput?.toLowerCase())
-    //     );
-    // });
+    const filteredLaunches = lauchData.filter((launch) => {
+        return Object.values(launch)?.some((value) =>
+        value?.toString()?.toLowerCase()?.includes(searchInput?.toLowerCase())
+        );
+    });
 
     // Iterate Filtered Data
-    const ids = lauchData?.map(launch => launch.id);
-    const flightNumbers = lauchData?.map(launch => launch.flight_number);
-    const names = lauchData?.map(launch => launch.name);
-    const years = lauchData?.map((launch) => {
+    const ids = filteredLaunches?.map(launch => launch.id);
+    const flightNumbers = filteredLaunches?.map(launch => launch.flight_number);
+    const names = filteredLaunches?.map(launch => launch.name);
+    const years = filteredLaunches?.map((launch) => {
         const date = new Date(launch.date_utc);
         return date.getFullYear();
     });
     // const desc = lauchData?.map(launch => launch.details);
-    const rocket = lauchData?.map(launch => launch.links.patch.small);
+    const rocket = filteredLaunches?.map(launch => launch.links.patch.small);
 
     // Iterate items
     const listItem = ids?.map((id, i) => {
@@ -64,7 +68,6 @@ const LaunchListItem = (/* { searchInput } */) => {
         );
     });
 
-    // return (<></>);
     return listItem;
 }
 

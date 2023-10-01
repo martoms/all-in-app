@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors'
 import { connect } from 'mongoose';
-import featuresRoutes from './routes/featuresRoutes.js';
+import featuresRoutes from './routes/featuresRoutes';
 
 dotenv.config();
 const app = express();
