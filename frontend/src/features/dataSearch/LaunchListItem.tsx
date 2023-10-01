@@ -10,9 +10,6 @@ type LaunchListItemProps = {
 
 const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } ) => {
 
-    console.log('filter')
-    console.log(filter)
-
     const dispatch = useAppDispatch()
     const lauchDataURL = 'https://api.spacexdata.com/v4/launches/'
 
@@ -25,7 +22,7 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } 
         flight_number: string;
         name: string;
         date_utc: string;
-        // details: string;
+        success: boolean;
         links: {
             patch: {
                 small: string
@@ -36,11 +33,30 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } 
     const lauchData = useAppSelector(state => state.launchData.data) as LaunchData[]
 
     // Filter launches based on the search input
-    const filteredLaunches = lauchData?.filter((launch) => {
+    const searchFilter = lauchData?.filter((launch) => {
         return Object.values(launch)?.some((value) =>
         value?.toString()?.toLowerCase()?.includes(searchInput?.toLowerCase())
         );
     });
+
+    let filteredLaunches;
+    if (filter === 'oldest') {
+        filteredLaunches = searchFilter?.sort((a, b) => {
+            return Number(a.flight_number) - Number(b.flight_number)
+        });
+    } else if (filter === 'latest') {
+        filteredLaunches = searchFilter?.sort((a, b) => {
+            return Number(b.flight_number) - Number(a.flight_number)
+        });
+    } else if (filter === 'successful') {
+        filteredLaunches = searchFilter?.filter((launch) => {
+            return launch.success
+        })
+    } else if (filter === 'failed') {
+        filteredLaunches = searchFilter?.filter((launch) => {
+            return launch.success === false
+        })
+    }
 
     // Iterate Filtered Data
     const ids = filteredLaunches?.map(launch => launch.id);
@@ -50,7 +66,6 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } 
         const date = new Date(launch.date_utc);
         return date.getFullYear();
     });
-    // const desc = lauchData?.map(launch => launch.details);
     const rocket = filteredLaunches?.map(launch => launch.links.patch.small);
 
     // Iterate items
@@ -58,14 +73,11 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } 
         return ( 
             <li key={id}>
                 <div className='list-item'>
-                    <img src={rocket[i] || placeholder} alt={names[i]} loading='lazy' />
+                    <img src={rocket![i] || placeholder} alt={names![i]} loading='lazy' />
                     <div className='list-details'>
                         <p className='mission'>
-                            {`${flightNumbers[i]}: ${names[i]} (${years[i]})`}
+                            {`${flightNumbers![i]}: ${names![i]} (${years![i]})`}
                         </p>
-                        {/* <p className='desc'>
-                            {desc[i]}
-                        </p> */}
                     </div>
                 </div>
             </li>
