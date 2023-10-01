@@ -9,6 +9,7 @@ const LaunchList = () => {
 
     const [searchInput, setSearchInput] = useState("");
     const [filter, setFilter] = useState("oldest");
+    const [resultCount, setResultCount] = useState(0);
 
     return (
         <>
@@ -31,10 +32,15 @@ const LaunchList = () => {
                 </Form.Select>
             </Form.Group>
         </Form>
+        <div>
+            {
+                resultCount === 0 ? <p>No Results</p> : resultCount === 1 ? <p>{ resultCount } result</p> : <p>{ resultCount } results</p>
+            }
+        </div>
         <div id="launches">
             <ul>
                 <React.Suspense fallback='Loading...'>
-                    <LaunchListItem searchInput={searchInput} filter={filter} />
+                    <LaunchListItem searchInput={searchInput} filter={filter} setResultCount={setResultCount} />
                 </React.Suspense>
             </ul>
         </div>

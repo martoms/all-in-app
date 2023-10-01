@@ -17,6 +17,7 @@ const DataSearch = () => {
     const title = dataSearch?.title;
     const description =dataSearch?.description;
 
+
     return ( 
         <div className="main-container">
            <div>

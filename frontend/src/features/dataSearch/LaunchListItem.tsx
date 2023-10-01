@@ -5,10 +5,11 @@ import placeholder from '../../images/rocket.webp';
 
 type LaunchListItemProps = {
     searchInput: string; 
-    filter: string
+    filter: string;
+    setResultCount: (count: number) => void;
 }
 
-const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } ) => {
+const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter, setResultCount } ) => {
 
     const dispatch = useAppDispatch()
     const lauchDataURL = 'https://api.spacexdata.com/v4/launches/'
@@ -39,7 +40,8 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } 
         );
     });
 
-    let filteredLaunches;
+    // Filter launches based on the selected filter
+    let filteredLaunches: LaunchData[] | null = null;
     if (filter === 'oldest') {
         filteredLaunches = searchFilter?.sort((a, b) => {
             return Number(a.flight_number) - Number(b.flight_number)
@@ -67,6 +69,12 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } 
         return date.getFullYear();
     });
     const rocket = filteredLaunches?.map(launch => launch.links.patch.small);
+
+    const resultCount = filteredLaunches?.length || 0;
+
+    useEffect(() => {
+        setResultCount(resultCount);
+    }, [resultCount, setResultCount]);
 
     // Iterate items
     const listItem = ids?.map((id, i) => {
