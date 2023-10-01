@@ -5,9 +5,13 @@ import placeholder from '../../images/rocket.webp';
 
 type LaunchListItemProps = {
     searchInput: string; 
+    filter: string
 }
 
-const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput } ) => {
+const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter } ) => {
+
+    console.log('filter')
+    console.log(filter)
 
     const dispatch = useAppDispatch()
     const lauchDataURL = 'https://api.spacexdata.com/v4/launches/'

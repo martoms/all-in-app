@@ -50,7 +50,8 @@ input {
     font-style: italic;
     margin-left: 10px; }
   input:focus {
-    outline-color: #A2FF86; }
+    border-color: #A2FF86 !important;
+    outline-color: #A2FF86 !important; }
 
 .main-container {
   background-color: #f8f8ff;
@@ -158,6 +159,8 @@ form.searchbar {
     position: relative;
     width: 100%;
     padding: 10px; }
+  form.searchbar > div {
+    width: 100%; }
 
 div#launches {
   position: relative;

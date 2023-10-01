@@ -1,31 +1,40 @@
 import React, { ChangeEvent } from "react";
+import { Form } from "react-bootstrap";
 import { useState } from "react";
+import { handleInput, handleSelect } from "../../hooks/useHandleForm";
 
 const LaunchListItem = React.lazy(() => import("./LaunchListItem"))
 
 const LaunchList = () => {
 
     const [searchInput, setSearchInput] = useState("");
-
-    // Get input value
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearchInput(e.target.value);
-    };
+    const [filter, setFilter] = useState("oldest");
 
     return (
         <>
-        <form className="searchbar">
-            <input
-                type="text"
-                placeholder="Enter keywords"
-                value={searchInput}
-                onChange={handleInputChange}
-            />
-        </form>
+        <Form className="searchbar">
+            <Form.Group>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter keywords"
+                    value={searchInput}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => handleInput(e, setSearchInput)}
+                />
+                <Form.Select
+                    value={filter}
+                    onChange={(e: ChangeEvent<HTMLSelectElement>) => handleSelect(e, setFilter)}
+                    >
+                    <option value="oldest">Oldest</option>
+                    <option value="latest">Latest</option>
+                    <option value="successful">Successful</option>
+                    <option value="failed">Failed</option>
+                </Form.Select>
+            </Form.Group>
+        </Form>
         <div id="launches">
             <ul>
                 <React.Suspense fallback='Loading...'>
-                    <LaunchListItem searchInput={searchInput} />
+                    <LaunchListItem searchInput={searchInput} filter={filter} />
                 </React.Suspense>
             </ul>
         </div>

@@ -88,19 +88,20 @@ li {
 }
 
 //  Forms
-@mixin placeholder {
+@mixin input-1 {
     &::placeholder {
       font-style: italic;
       margin-left: 10px;
     };
 
     &:focus {
-        outline-color: $light-c-4;
+        border-color: $light-c-4 !important;
+        outline-color: $light-c-4 !important;
     }
 }
 
 input {
-    @include placeholder;
+    @include input-1;
     border-radius: $b-radius-1;
     border-color: transparent;
 }
