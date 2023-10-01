@@ -168,7 +168,6 @@ input {
 }
 
 .expand-toggle {
-    
     position: relative;
     margin-top: -($base-margin);
     margin-bottom: $base-margin;
@@ -177,6 +176,11 @@ input {
         @include toggle;
         display: block;
         margin-left: auto;
+    }
+
+    @include md {
+        position: absolute;
+        right: $base-margin * 4;
     }
 }
 

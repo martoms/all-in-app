@@ -15,9 +15,6 @@ const LaunchList: React.FC<LaunchListProps> = ({expandToggle}) => {
     const [filter, setFilter] = useState("oldest");
     const [resultCount, setResultCount] = useState(0);
 
-    console.log('expandToggle')
-    console.log(expandToggle)
-
     return (
         <>
         <Form className="searchbar">

@@ -98,6 +98,10 @@ input {
     cursor: pointer;
     display: block;
     margin-left: auto; }
+  @media (min-width: 768px) {
+    .expand-toggle {
+      position: absolute;
+      right: 4rem; } }
 
 .hr-left {
   border: solid 4px #A2FF86;
@@ -188,7 +192,7 @@ footer {
         width: 70%; } }
     @media (min-width: 992px) {
       .feature-container form input {
-        width: 80%; } }
+        width: 75%; } }
   .feature-container form select {
     width: 35%;
     background-color: transparent;
@@ -205,7 +209,7 @@ footer {
         width: 25%; } }
     @media (min-width: 992px) {
       .feature-container form select {
-        width: 15%; } }
+        width: 20%; } }
   .feature-container form + div p {
     text-align: center;
     margin-top: 1rem;

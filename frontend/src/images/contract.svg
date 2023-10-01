@@ -1,3 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="19.814" height="19.814" viewBox="0 0 19.814 19.814">
-  <path id="contract" d="M4.5,20.351H8.463v3.963H11.1v-6.6H4.5ZM8.463,8.463H4.5V11.1h6.6V4.5H8.463Zm9.247,15.851h2.642V20.351h3.963V17.709h-6.6ZM20.351,8.463V4.5H17.709v6.6h6.6V8.463Z" transform="translate(-4.5 -4.5)" fill="rgba(0,0,0,0.1)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g id="contract" transform="translate(-51 -8)">
+    <g id="Rectangle_56" data-name="Rectangle 56" transform="translate(51 8)" fill="none" stroke="rgba(112,112,112,0)" stroke-width="1">
+      <rect width="28" height="28" rx="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="27" height="27" rx="5.5" fill="none"/>
+    </g>
+    <path id="contract-2" data-name="contract" d="M4.5,20.351H8.463v3.963H11.1v-6.6H4.5ZM8.463,8.463H4.5V11.1h6.6V4.5H8.463Zm9.247,15.851h2.642V20.351h3.963V17.709h-6.6ZM20.351,8.463V4.5H17.709v6.6h6.6V8.463Z" transform="translate(50.746 7.593)" fill="rgba(0,0,0,0.3)"/>
+  </g>
 </svg>
