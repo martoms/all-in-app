@@ -3,13 +3,20 @@ import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { handleInput, handleSelect } from "../../hooks/useHandleForm";
 
-const LaunchListItem = React.lazy(() => import("./LaunchListItem"))
+const LaunchListItem = React.lazy(() => import("./LaunchListItem"));
 
-const LaunchList = () => {
+type LaunchListProps = {
+    expandToggle: boolean;
+}
+
+const LaunchList: React.FC<LaunchListProps> = ({expandToggle}) => {
 
     const [searchInput, setSearchInput] = useState("");
     const [filter, setFilter] = useState("oldest");
     const [resultCount, setResultCount] = useState(0);
+
+    console.log('expandToggle')
+    console.log(expandToggle)
 
     return (
         <>
@@ -37,7 +44,7 @@ const LaunchList = () => {
                 resultCount === 0 ? <p>No Results</p> : resultCount === 1 ? <p>{ resultCount } result</p> : <p>{ resultCount } results</p>
             }
         </div>
-        <div id="launches">
+        <div id="launches" className={expandToggle ? 'expand' : ''}>
             <ul>
                 <React.Suspense fallback='Loading...'>
                     <LaunchListItem searchInput={searchInput} filter={filter} setResultCount={setResultCount} />

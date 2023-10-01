@@ -67,6 +67,12 @@ a {
     animation: pulse 0.3s ease;
 }
 
+// toggles
+@mixin toggle {
+    @include special-link;
+    cursor: pointer;
+}
+
 // Lists
 ul{
     padding: 0;
@@ -140,10 +146,38 @@ input {
     }
 };
 
-.feature-container {
+@mixin feature-container {
     position: relative;
     background-color: $light-bg-3;
-    height: calc(100vh - 246.71px - 36px);
+}
+
+.feature-container {
+    height: calc(100vh - 269px - 56px);
+    @include feature-container;
+    @include md {
+        height: calc(100vh - 246.71px - 56px);
+    }
+    @include lg {
+        height: calc(100vh - 220px - 56px);
+    }
+}
+
+.feature-container.expand {
+    @include feature-container;
+    height: calc(100vh - 36px);
+}
+
+.expand-toggle {
+    
+    position: relative;
+    margin-top: -($base-margin);
+    margin-bottom: $base-margin;
+
+    img {
+        @include toggle;
+        display: block;
+        margin-left: auto;
+    }
 }
 
 @mixin hr {

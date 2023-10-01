@@ -74,9 +74,30 @@ input {
     color: #1B6B93; }
 
 .feature-container {
+  height: calc(100vh - 269px - 56px);
+  position: relative;
+  background-color: #fff5ee; }
+  @media (min-width: 768px) {
+    .feature-container {
+      height: calc(100vh - 246.71px - 56px); } }
+  @media (min-width: 992px) {
+    .feature-container {
+      height: calc(100vh - 220px - 56px); } }
+
+.feature-container.expand {
   position: relative;
   background-color: #fff5ee;
-  height: calc(100vh - 246.71px - 36px); }
+  height: calc(100vh - 36px); }
+
+.expand-toggle {
+  position: relative;
+  margin-top: -1rem;
+  margin-bottom: 1rem; }
+  .expand-toggle img {
+    animation: pulse 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin-left: auto; }
 
 .hr-left {
   border: solid 4px #A2FF86;
@@ -192,12 +213,12 @@ footer {
     color: #807b77; }
 
 div#launches {
+  max-height: calc(100vh - 490px - 19.81px);
   position: relative;
   background-color: white;
   border-radius: 10px;
   margin: auto;
   margin-top: 1rem;
-  max-height: calc(100vh - 450px);
   overflow-y: auto; }
   @media (min-width: 768px) {
     div#launches {
@@ -222,5 +243,42 @@ div#launches {
           font-weight: 700;
           margin-bottom: 0; }
         div#launches ul li .list-item:hover {
+          filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.1));
+          background-color: #fafafa; }
+  @media (min-width: 992px) {
+    div#launches {
+      max-height: calc(100vh - 450px); } }
+
+div#launches.expand {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 1rem;
+  overflow-y: auto;
+  min-height: calc(100vh - 225px); }
+  @media (min-width: 768px) {
+    div#launches.expand {
+      width: 70%; } }
+  div#launches.expand ul {
+    padding: 3rem; }
+    div#launches.expand ul li {
+      margin: 0.2rem 0; }
+      div#launches.expand ul li .list-item:first-child {
+        padding-top: 0; }
+      div#launches.expand ul li .list-item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        gap: 1rem;
+        background-color: white;
+        padding: 1rem 0; }
+        div#launches.expand ul li .list-item > img {
+          height: 50px;
+          width: 50px; }
+        div#launches.expand ul li .list-item .mission {
+          font-weight: 700;
+          margin-bottom: 0; }
+        div#launches.expand ul li .list-item:hover {
           filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.1));
           background-color: #fafafa; }

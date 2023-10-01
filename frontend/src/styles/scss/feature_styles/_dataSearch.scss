@@ -59,13 +59,12 @@
     }
 }
 
-div#launches {
+@mixin launches {
     position: relative;
     background-color: white;
     border-radius: $b-radius-1;
     margin: auto;
     margin-top: $base-margin;
-    max-height: calc(100vh - 450px);
     overflow-y: auto;
 
     @include md {
@@ -106,4 +105,17 @@ div#launches {
 
         }
     }
+}
+
+div#launches {
+    max-height: calc(100vh - 490px - 19.81px);
+    @include launches;
+    @include lg {
+        max-height: calc(100vh - 450px);
+    }
+}
+
+div#launches.expand {
+    @include launches;
+    min-height: calc(100vh - 225px);
 }
