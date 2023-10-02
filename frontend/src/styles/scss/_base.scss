@@ -92,7 +92,7 @@ li {
 
 @mixin d-flex-center {
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 //  Forms
@@ -166,7 +166,7 @@ input {
 
 .feature-container.expand {
     @include feature-container;
-    height: calc(100vh - 36px);
+    height: calc(100vh - 56px);
 }
 
 @mixin frame-1 {

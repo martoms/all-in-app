@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import LaunchData from './LauncData.types';
 import useReformatDate from '../../hooks/useReformatDate';
+import rocket from '../../images/rocket.webp';
 
 interface LaunchItemModalProps {
   showModal: boolean;
@@ -39,33 +40,33 @@ const LaunchItemModal: React.FC<LaunchItemModalProps> = ({showModal, setShowModa
   const reason = failures[0]?.reason
 
   return (
-    <Modal show={showModal} onHide={handleCloseModal}>
+    <Modal className='launch-modal' show={showModal} onHide={handleCloseModal}>
       <Modal.Header closeButton>
         <Modal.Title>{name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div>
-          <img src={small} alt={name} />
+        <div className='modal-img'>
+          <img src={small || rocket} alt={name} />
           <p>{`${launchDate} at ${launchTime}`}</p>
         </div>
         {
-          failures?.length !== 0 &&
-          <div>
+          failures?.length > 0 &&
+          <div className='launch-failure'>
             <p>
-              Failed time after launch: 
-              <span>{timeFailed < 0 ? ' Failed before launching' : ` ${timeFailed} seconds`}</span>
+              Failed time after launch
+              <span>{timeFailed < 0 ? 'Failed before launching' : `${timeFailed} seconds`}</span>
             </p>
             <p>
-              Altitude: 
-              <span>{altitude === null || altitude === 0 ? ' 0' : ` ${altitude}km`}</span>
+              Altitude
+              <span>{altitude === null || altitude === 0 ? '0' : `${altitude}km`}</span>
             </p>
             <p>
-              Reason:
-              <span>{` ${reason}`}</span>
+              Reason
+              <span>{`${reason}`}</span>
             </p>
           </div>
         }
-        <p>{details}</p>
+        <p className='details'>{details}</p>
       </Modal.Body>
     </Modal>
   );

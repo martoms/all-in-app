@@ -87,7 +87,7 @@ input {
 .feature-container.expand {
   position: relative;
   background-color: #fff5ee;
-  height: calc(100vh - 36px); }
+  height: calc(100vh - 56px); }
 
 .expand-toggle {
   position: relative;
@@ -261,7 +261,7 @@ div#launches.expand {
   margin: auto;
   margin-top: 1rem;
   overflow-y: auto;
-  min-height: calc(100vh - 225px); }
+  min-height: calc(100vh - 245px); }
   @media (min-width: 768px) {
     div#launches.expand {
       width: 70%; } }
@@ -288,14 +288,32 @@ div#launches.expand {
           background-color: #fafafa;
           cursor: pointer; }
 
-div#launch-details {
-  max-height: calc(100vh - 490px - 19.81px);
-  position: relative;
-  background-color: white;
+div.launch-modal div.modal-content .modal-title {
+  font-weight: 700; }
+
+div.launch-modal div.modal-content div.modal-img {
+  text-align: center;
+  font-weight: 600; }
+  div.launch-modal div.modal-content div.modal-img img {
+    width: 256px;
+    height: auto;
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem; }
+
+div.launch-modal div.modal-content .launch-failure {
   border-radius: 10px;
-  margin: auto;
-  margin-top: 1rem;
-  overflow-y: auto; }
-  div#launch-details img {
-    width: 70vw;
-    height: auto; }
+  background-color: #f7f5f6;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center; }
+  div.launch-modal div.modal-content .launch-failure p {
+    font-weight: 600; }
+  div.launch-modal div.modal-content .launch-failure span {
+    font-weight: 400;
+    border-radius: 10px;
+    display: block;
+    background-color: white; }
+
+div.launch-modal div.modal-content .details {
+  text-align: justify; }

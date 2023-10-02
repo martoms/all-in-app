@@ -97,6 +97,7 @@
 
         }
     }
+
 }
 
 div#launches {
@@ -109,19 +110,51 @@ div#launches {
 
 div#launches.expand {
     @include launches;
-    min-height: calc(100vh - 225px);
+    min-height: calc(100vh - 245px);
 }
 
-@mixin launch-details {
-    @include frame-1;
+div.launch-modal {
+    div.modal-content {
 
-    img {
-        width: 70vw;
-        height: auto;
+        .modal-title {
+            font-weight: 700;
+        }
+
+        div.modal-img {
+            
+            text-align: center;
+            font-weight: 600;
+
+            img {
+                width: 256px;
+                height: auto;
+                display: block;
+                margin: auto;
+                margin-bottom: $base-margin;
+            }
+        }
+
+        .launch-failure {
+            border-radius: $b-radius-1;
+            background-color: $light-bg-4;
+            padding: $base-padding;
+            margin-bottom: $base-margin;
+            text-align: center;
+
+            p {
+                font-weight: 600;
+            }
+
+            span {
+                font-weight: 400;
+                border-radius: $b-radius-1;
+                display: block;
+                background-color: white;
+            }
+        }
+
+        .details {
+            text-align: justify;
+        }
     }
-}
-
-div#launch-details {
-    max-height: calc(100vh - 490px - 19.81px);
-    @include launch-details;
 }

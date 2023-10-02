@@ -5,6 +5,13 @@ interface LaunchData {
     details: string;
     date_utc: string;
     success: boolean;
+    failures: [
+        {
+            time: number;
+            altitude: number;
+            reason: string
+        }
+    ]
     links: {
         patch: {
             small: string
