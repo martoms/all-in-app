@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from "../../hooks/useReduxSelectors";
 import { fetchLaunchData } from './dataSearchSlice';
 import placeholder from '../../images/rocket.webp';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import LaunchItemModal from './LaunchItemModal';
+import LaunchData from './LauncData.types';
 
 type LaunchListItemProps = {
     searchInput: string; 
@@ -12,27 +12,17 @@ type LaunchListItemProps = {
 }
 
 const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter, setResultCount } ) => {
+
+    const [showModal, setShowModal] = useState(false);
+    const [launchId, setLaunchID] = useState('')
+    const handleShowModal = (id: string) => {setShowModal(true); setLaunchID(id)};
     
-    const { route } = useParams();
     const dispatch = useAppDispatch();
     const launchDataURL = 'https://api.spacexdata.com/v4/launches/'
 
     useEffect(() => {
         dispatch(fetchLaunchData(launchDataURL))
     }, [dispatch, launchDataURL])
-
-    interface LaunchData {
-        id: string;
-        flight_number: string;
-        name: string;
-        date_utc: string;
-        success: boolean;
-        links: {
-            patch: {
-                small: string
-            }
-        }
-    }
 
     const launchData = useAppSelector(state => state.launchData.data) as LaunchData[]
 
@@ -82,22 +72,29 @@ const LaunchListItem: React.FC<LaunchListItemProps> = ( { searchInput, filter, s
     // Iterate items
     const listItem = ids?.map((id, i) => {
         return ( 
-            <Link key= { id } to={`/features/${route}/${id}`}>
-                <li>
-                    <div className='list-item'>
-                        <img src={rocket![i] || placeholder} alt={names![i]} loading='lazy' />
-                        <div className='list-details'>
-                            <p className='mission'>
-                                {`${flightNumbers![i]}: ${names![i]} (${years![i]})`}
-                            </p>
-                        </div>
+            <li key= { id } onClick={() => handleShowModal(id)} >
+                <div className='list-item'>
+                    <img src={rocket![i] || placeholder} alt={names![i]} loading='lazy' />
+                    <div className='list-details'>
+                        <p className='mission'>
+                            {`${flightNumbers![i]}: ${names![i]} (${years![i]})`}
+                        </p>
                     </div>
-                </li>
-            </Link>
+                </div>
+            </li>
         );
     });
 
-    return listItem;
+    return (
+        <>
+        <ul>
+            <React.Suspense fallback='Loading...'>
+                { listItem }
+            </React.Suspense>
+            <LaunchItemModal showModal={showModal} setShowModal={setShowModal} filteredLaunches={filteredLaunches} launchId={launchId} />
+        </ul>
+        </>
+    );
 }
 
 export default LaunchListItem;

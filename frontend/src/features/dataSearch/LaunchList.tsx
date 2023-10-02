@@ -42,11 +42,7 @@ const LaunchList: React.FC<LaunchListProps> = ({expandToggle}) => {
             }
         </div>
         <div id="launches" className={expandToggle ? 'expand' : ''}>
-            <ul>
-                <React.Suspense fallback='Loading...'>
-                    <LaunchListItem searchInput={searchInput} filter={filter} setResultCount={setResultCount} />
-                </React.Suspense>
-            </ul>
+            <LaunchListItem searchInput={searchInput} filter={filter} setResultCount={setResultCount} />
         </div>
         </>
     );
